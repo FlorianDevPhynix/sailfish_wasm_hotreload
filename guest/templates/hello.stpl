@@ -1,0 +1,5 @@
+<html>
+  <body>
+    Hello <%= first_name %> <%= name %>!
+  </body>
+</html>

@@ -1,0 +1,15 @@
+[package]
+name = "shared"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+extism-convert = { version = "1.8.0", default-features = false }
+postcard = { version = "1.0.10", default-features = false, features = [
+    "use-std",
+] }
+serde = { version = "1.0.214", features = ["derive"] }
+lazy_static = "1.5.0"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+extism = "1.8.0"

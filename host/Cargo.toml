@@ -1,0 +1,13 @@
+[package]
+name = "host"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+extism = "1.8.0"
+shared = { path = "../shared" }
+guest = { path = "../guest" }
+cargo_metadata = "0.18.1"
+notify-debouncer-full = "0.4.0"
+ctrlc = "3.4.5"
+lazy_static = "1.5.0"
