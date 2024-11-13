@@ -83,6 +83,14 @@ impl DebounceEventHandler for Crate {
 }
 
 fn main() {
+    /* println!("{}", module_path!());
+    {
+        let struct_name = "TestTemplateÉt".to_string();
+        let func_name = format!("render_{}", heck::AsSnekCase(struct_name));
+        println!("{}", func_name);
+        return;
+    } */
+
     let metadata = cargo_metadata::MetadataCommand::new().exec().unwrap();
     // extism doesn't seem to care about windows paths
     let target_dir = metadata.target_directory.as_str().replace("\\", "/");
@@ -151,8 +159,11 @@ fn main() {
 
     loop {
         std::thread::sleep(Duration::from_secs(5));
-        //guest_crate.call();
-        guest::TestTemplate::new("Builder".into(), "Bob".into()).render_once();
+        use sailfish::TemplateOnce;
+        println!(
+            "{:?}",
+            guest::TestTemplate::new("Builder".into(), "Bob".into()).render_once()
+        );
 
         if *pair.0.lock().unwrap() {
             break;
